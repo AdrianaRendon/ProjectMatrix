@@ -1,0 +1,11 @@
+.graph {
+    padding: 5rem;
+    justify-content: center;
+    display: flex;
+}
+
+:host ::ng-deep{
+    .legend-title-text{
+        display: none !important; 
+    }    
+}

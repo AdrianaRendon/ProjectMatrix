@@ -1,0 +1,143 @@
+<div *ngIf="visibleTable">
+  <div *ngIf="true" class="container-all-data">
+    <div class="container-data">
+      <div class="data">
+        <div class="style-input">
+          <label class="style-label">Vr. Gold Price OZ </label>
+          <input type="number" [(ngModel)]="vlGoldPrice" required min="0" />
+        </div>
+        <div class="style-input">
+          <label class="style-label">TRM </label>
+          <input type="number" [(ngModel)]="trm" required min="0" />
+        </div>
+        <div class="style-input">
+          <label class="style-label">Fecha</label>
+          <input
+            [ngModel]="dateCurrent | date : 'yyyy-MM-dd'"
+            (ngModelChange)="dateCurrent = $event"
+            type="date"
+          />
+        </div>
+      </div>
+      <div class="button">
+        <button class="button-save" (click)="calculate()">Guardar</button>
+      </div>
+    </div>
+    <div class="static-table">
+      <div class="data">
+        <div class="style-input">
+          <label class="style-label">OZ TY GR </label>
+          <input type="number" [(ngModel)]="ozTyGr" required min="0" />
+        </div>
+        <div class="style-input">
+          <label class="style-label">Gramos medalla </label>
+          <input type="number" [(ngModel)]="medalGr" required min="0" />
+        </div>
+        <div class="style-input">
+          <label class="style-label">Costos operativos </label>
+          <input type="number" [(ngModel)]="utility" required min="0" />
+        </div>
+        <div class="style-input">
+          <label class="style-label">Incremento </label>
+          <input type="number" [(ngModel)]="increment" required min="0" />
+        </div>
+        <div class="style-input">
+          <label class="style-label">IVA </label>
+          <input [(ngModel)]="ivaValueConst" required min="0" />
+        </div>
+      </div>
+      <div class="button">
+        <button class="button-save" (click)="updateValuesConst()">
+          Actualizar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="filter-date">
+    <div class="style-input style-input__gap">
+      <label class="style-label">Desde</label>
+      <input
+        [ngModel]="dateFrom | date : 'yyyy-MM-dd'"
+        (ngModelChange)="changeDate($event, 1)"
+        type="date" [min]="dateMin"
+      />
+    </div>
+    <div class="style-input style-input__gap">
+      <label class="style-label">Hasta</label>
+      <input
+        [ngModel]="dateTo | date : 'yyyy-MM-dd'"
+        (ngModelChange)="changeDate($event, 0)"
+        type="date" [min]="dateMin"
+      />
+    </div>
+  </div>
+  <div class="message-info" *ngIf="showMessageInfo">
+    El rango de fechas que se muestra en un inicio se toma desde un mes antes
+    desde la última fecha ingresada
+  </div>
+</div>
+<input type="checkbox" [(ngModel)]="visibleTable" />
+<div class="table" *ngIf="getDataFirebase && getDataFirebaseFilter.length > 0">
+  <div class="table-title without-color">
+    <span class="table-border">Fecha</span>
+    <span>Vr. Gold Price OZ</span>
+    <span>TRM</span>
+    <span>Vr Pesos OZ</span>
+    <span>OZ TY GR</span>
+    <span>Valor Gr Oro puro</span>
+    <span>Gramos medalla</span>
+    <span>Valor material</span>
+    <span>Costos operativos</span>
+    <span>Base</span>
+    <span>IVA</span>
+    <span>Vr. IVA</span>
+    <span>Incremento</span>
+    <span>Incremento Iva</span>
+    <span>Valor Medalla</span>
+    <span>Valor medalla final</span>
+    <span>Acciones</span>
+  </div>
+  <div [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll'">
+    <div class="table-info" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd" 
+      [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" >
+      <span class="table-border">{{
+        elementDataBase.dateCurrent | date : "yyyy-MM-dd"
+      }}</span>
+      <span>{{ elementDataBase.vlGoldPrice.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.trm.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.vlCopOZ.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.ozTyGr.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.vlGrGold.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.medalGr.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.materialVl.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.utility.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.base.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.ivaValueConst.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.ivaVl.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.incrementIva.toLocaleString("en-US") }}</span>
+      <span>{{ elementDataBase.medalVl.toLocaleString("en-US") }}</span>
+      <span>{{
+        elementDataBase.vlMedalIncrement.toLocaleString("en-US")
+      }}</span>
+      <span>
+        <div class="container-buttons">
+          <!-- <div (click)="editRegister(elementDataBase)">
+          <img
+            class="logo"
+            src="./../../../assets/images/edit.png"
+            alt="Edit register"
+          />
+        </div> -->
+          <div (click)="deleteRegister(elementDataBase)" *ngIf="showTrash(i)">
+            <img
+              class="logo"
+              src="assets/images/trash.png"
+              alt="Delete register"
+            />
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>

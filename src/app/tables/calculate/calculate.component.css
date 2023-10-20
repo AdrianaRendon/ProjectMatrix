@@ -1,0 +1,147 @@
+/* Cambiar el ancho de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 1px; /* Cambia el ancho de la barra de desplazamiento */
+}
+
+/* Cambiar el color de fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Cambia el color de fondo de la barra de desplazamiento */
+}
+
+/* Cambiar el color de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: #99ccff; /* Cambia el color de la barra de desplazamiento */
+  border-radius: 5px; 
+}
+
+/* Cambiar el color del fondo al pasar el mouse por encima de la barra de desplazamiento */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cambia el color de fondo al pasar el mouse por encima de la barra de desplazamiento */
+}
+
+.data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.button-save {
+  margin-top: 2rem;
+  background-color: #233016;
+  border: none;
+  color: #f4cc25;
+  padding: 12px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button {
+  justify-content: center;
+  display: flex;
+  padding-top: 3rem;
+}
+
+.table {
+  border: black 1px solid;
+  margin-top: 1rem;
+}
+
+.table-title,
+.table-info {
+  display: grid;
+  grid-template-columns: repeat(17, 1fr);
+}
+
+.table-title span,
+.table-info span {
+  padding: 0.3rem 0;
+  border-bottom: black 1px solid;
+  border-right: black 1px solid;
+  text-align: center;
+}
+
+.table-title span {
+  border-top: black 1px solid;
+  font-weight: bold;
+}
+
+.table-title {
+  border-bottom: black 1px solid;
+}
+
+.table-border {
+  border-left: black 1px solid;
+}
+
+.full-color {
+  background: #d0d0d3;
+}
+
+.without-color {
+  background: #f5de85;
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.container-data {
+  padding: 2rem;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.static-table {
+  padding: 2rem;
+  border: 1px solid;
+  border-radius: 5px;
+}
+.container-all-data {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.style-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.style-label {
+  font-weight: 600;
+  display: inline-block;
+  width: 135px;
+}
+.filter-date{
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 8rem;  
+}
+
+.style-input__gap{
+  gap: 1rem;
+}
+
+.message-info{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.show-scroll{
+  overflow-y: scroll;
+  height: 270px;
+}
+
+.hide-scroll{
+  overflow-y: hidden;
+}
