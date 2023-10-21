@@ -52,6 +52,21 @@
         </button>
       </div>
     </div>
+    <div class="increment-table">
+      <div class="law">
+        <h1>Fórmula</h1>
+        <img
+          class="image-formula-law"
+          src="assets/images/Law750.png"
+          alt="image-formula"
+        />
+      </div>
+      <img
+        class="image-formula"
+        src="assets/images/CalculateLaw.png"
+        alt="image-formula"
+      />
+    </div>
   </div>
   <div class="filter-date">
     <div class="style-input style-input__gap">
@@ -98,7 +113,7 @@
     <span>Acciones</span>
   </div>
   <div [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll'">
-    <div class="table-info" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd" 
+    <div class="table-info" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd"
       [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" >
       <span class="table-border">{{
         elementDataBase.dateCurrent | date : "yyyy-MM-dd"
