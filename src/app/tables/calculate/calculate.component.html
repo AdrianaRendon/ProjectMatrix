@@ -15,7 +15,7 @@
           <input
             [ngModel]="dateCurrent | date : 'yyyy-MM-dd'"
             (ngModelChange)="dateCurrent = $event"
-            type="date"
+            type="date" [min]="dateMin"
           />
         </div>
       </div>

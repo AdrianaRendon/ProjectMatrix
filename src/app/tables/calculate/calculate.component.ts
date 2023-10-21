@@ -37,7 +37,7 @@ export class CalculateComponent implements OnChanges {
   public showMessageInfo: boolean = true;
   public getDataFirebaseFilter: any = [];
   public visibleTable: boolean = true;
-  public dateMin = '2023-07-18';
+  public dateMin = '2023-07-15';
 
   @Input() getDataFirebase: any;
   @Input() valueConst: any;
@@ -184,7 +184,7 @@ export class CalculateComponent implements OnChanges {
 
   formatedDate(date: any = new Date()) {
     const yyyy = date.getFullYear();
-    const mm = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based, so add 1 and pad with '0'
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
     const dd = String(date.getDate()).padStart(2, '0');
 
     return `${yyyy}-${mm}-${dd}`;
@@ -196,7 +196,7 @@ export class CalculateComponent implements OnChanges {
 
   updateValuesConst() {
     try {
-      if (this.valueConst && this.valueConst.length !== 0) {
+      if (this.valueConst && this.valueConst.length !== 0 && this.valueConst.id) {
         const newValueConst: any = {
           VCOZTYGR: this.ozTyGr,
           VCMedalGr: this.medalGr,
