@@ -12,7 +12,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class DataGraphComponent implements OnChanges{
   public data: Idata[] = [];
   public dataArray: ISeries[] = [];
-  view: [number, number] = [1100, 600];
+  view: [number, number] = [1100, 500];
   //public getDataFirebase: DataCalculate[] = [];
 
   // options

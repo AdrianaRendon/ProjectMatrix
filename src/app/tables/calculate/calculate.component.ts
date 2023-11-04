@@ -37,6 +37,7 @@ export class CalculateComponent implements OnChanges {
   public showMessageInfo: boolean = true;
   public getDataFirebaseFilter: any = [];
   public visibleTable: boolean = true;
+  public visibleFormula: boolean = false;  
   public dateMin = '2023-07-15';
 
   @Input() getDataFirebase: any;

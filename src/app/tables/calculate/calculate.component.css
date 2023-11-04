@@ -19,11 +19,6 @@
   background: #555; /* Cambia el color de fondo al pasar el mouse por encima de la barra de desplazamiento */
 }
 
-.data {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
 .button-save {
   margin-top: 2rem;
   background-color: #233016;
@@ -39,7 +34,7 @@
 .button {
   justify-content: center;
   display: flex;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .table {
@@ -50,7 +45,7 @@
 .table-title,
 .table-info {
   display: grid;
-  grid-template-columns: repeat(17, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .table-title span,
@@ -105,37 +100,81 @@
 }
 
 .image-formula-law{
-  width: 10rem
-  rem
-  ;
-      height: 4rem;
+  width: 10rem;
+  height: 4rem;
 }
 
-.container-data {
-  padding: 2rem;
-  border: 1px solid;
-  border-radius: 5px;
-}
-
+.container-data,
 .static-table {
-  padding: 2rem;
+  padding: 1.5rem;
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 5px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.data, 
+.static-data {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.static-data {
+  grid-template-columns: 1fr 1fr;
+}
+
 .container-all-data {
   display: flex;
   justify-content: space-evenly;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.style-input {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.container-formula {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+@media(max-width:768px){
+  .container-data,
+  .static-table {
+    padding: 1rem; 
+  }
+  .button {
+    padding-top: 1rem;
+  }
+  .container-all-data {
+    flex-direction: column;
+  }  
+}
+
+@media(max-width:375px){
+  .style-input {
+    flex-direction: column;
+  }
+}
+
+@media(max-width:1100px){
+  .static-data {
+    grid-template-columns: 1fr;
+  }
 }
 
 .increment-table{
   padding: 2rem;
   border: 1px solid;
   border-radius: 5px;
-}
-
-.style-input {
-  display: flex;
-  justify-content: space-between;
 }
 
 .style-label {

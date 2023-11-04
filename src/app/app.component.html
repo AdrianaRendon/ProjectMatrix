@@ -1,48 +1,28 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="stylesheet" href="app.component.css" />
-  </head>
-
-  <body>
-    <header>
-        <div class="root">
-          <div class="menu container">
-            <img src="assets/images/A&Metals.png" title="A & Metals" />
-            <div class="title"> 
-              <h1>MATRIZ  DE VENTA MEDALLA DE ARTE Y CAPITALIZACIÓN</h1>  
-              <h2>Transformando vidas</h2>                    
-            </div>  
-            <img src="assets/images/medal.png" class="medal_logo" title="Medal" />             
-          </div>
-          
-        </div>
-    </header>
-    <section>
-    <div class="container">
-      <app-calculate
-      [valueConst]="valueConst"
-        [getDataFirebase]="getDataFirebase"
-        (emitVaues)="calculate($event)"
-        (deleteElement)="deleteRegister($event)"           
-        (emitValuesConst)="addValueConst($event)" 
-        (emitupdateValuesConst)="updateValueConst($event)"  
-        (getDataFirebaseFilterEmit)="getDataFirebaseFilter($event)"    
-      >
-      </app-calculate>
-      <app-spinner></app-spinner>
-      <app-data-graph [getDataFirebase]="getDataFirebase"
-      [getDataFirebaseFilter] = "dataFirebaseFilter"></app-data-graph>
-      <div class="no-data" *ngIf="(getDataFirebase && getDataFirebase.length === 0) || (dataFirebaseFilter && dataFirebaseFilter.length === 0)">
-        <img class = "no-dataMedal" src="assets/images/NoData.png" alt="Image no data">
-        <span *ngIf="(getDataFirebase && getDataFirebase.length > 0 && dataFirebaseFilter && dataFirebaseFilter.length === 0)">
-          No hay información dentro del rango seleccionado
-        </span>
-      </div>
-    </div>
-  </section>
-  </body>
-</html>
+<div class="header-container">
+  <img src="assets/images/A&Metals.png" title="A & Metals" />
+  <div class="title-container"> 
+    <h1 class="title-container__main">MEDALLA DE ARTE Y CAPITALIZACIÓN</h1>  
+    <h2 class="title-container__subtitle">Transformando vidas</h2>                    
+  </div>            
+</div>  
+<div class="container">
+  <app-calculate
+    [valueConst]="valueConst"
+    [getDataFirebase]="getDataFirebase"
+    (emitVaues)="calculate($event)"
+    (deleteElement)="deleteRegister($event)"           
+    (emitValuesConst)="addValueConst($event)" 
+    (emitupdateValuesConst)="updateValueConst($event)"  
+    (getDataFirebaseFilterEmit)="getDataFirebaseFilter($event)">
+  </app-calculate>
+  <!-- <app-spinner></app-spinner>
+  <app-data-graph 
+    [getDataFirebase]="getDataFirebase" [getDataFirebaseFilter] = "dataFirebaseFilter">
+  </app-data-graph>
+  <div class="no-data" *ngIf="(getDataFirebase && getDataFirebase.length === 0) || (dataFirebaseFilter && dataFirebaseFilter.length === 0)">
+    <img class = "no-dataMedal" src="assets/images/NoData.png" alt="Image no data">
+    <span *ngIf="(getDataFirebase && getDataFirebase.length > 0 && dataFirebaseFilter && dataFirebaseFilter.length === 0)">
+      No hay información dentro del rango seleccionado
+    </span>
+  </div> -->
+</div>
