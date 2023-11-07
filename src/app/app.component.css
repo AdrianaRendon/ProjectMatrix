@@ -6,12 +6,12 @@
 }
 
 img {
-  width: 8rem;
-  height: 8rem;
+  width: 11rem;
+  height: 7.5rem;
 }
 
 .header-container {
-  background: #234429;
+  background: linear-gradient( 90deg, rgb(42 59 25) 25%, rgb(55 99 11) 73% );
   display: flex;  
   flex-direction: row;
   gap: 4rem;
@@ -31,13 +31,23 @@ img {
 }
 
 .title-container__subtitle {
-  color: #FFFFFF;
+  color: #ebebe0;
   font-size: 2rem;
 }
 
 .container{
   margin-top: 3rem;
   padding: 0 1rem;
+}
+
+@media(max-width:1366px){
+  .title-container__main{
+    font-size: 2.5rem;
+  }
+
+  .title-container__subtitle {
+    font-size: 2rem;
+  }
 }
 
 @media(max-width:768px){
