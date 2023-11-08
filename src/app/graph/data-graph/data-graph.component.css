@@ -1,8 +1,94 @@
 .graph {
-    padding: 5rem;
     justify-content: center;
     display: flex;
 }
+
+.main-info{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;    
+  }
+  
+  .metal-image{
+    border: 1px;
+    border-radius: 1rem;      
+  }
+
+  .container-box{
+    padding: 1rem;
+    background: var(--neutral-100, #FFF);
+    border-radius: 1rem; 
+  }
+  
+  .medal-box{
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .container-image{
+    background-color: #F8F9FB;
+    display: flex;
+    justify-content: center;
+    border-radius: 1rem;  
+    border: 1px solid var(--neutral-300, #E0E0E0);
+  }
+
+  .register-info,
+  .register-info__flex{
+    border: 1px solid black;
+    border-radius: 1rem;  
+    margin-top: 0.5rem;
+    border: 1px solid var(--neutral-300, #E0E0E0);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .register-info__price{
+    color: var(--neutral-600, #272727);
+    font-weight: 600;
+  }
+
+  .register-info__date{
+    color: var(--neutral-500, #757575);
+  }
+
+  .register-info__flex{
+    flex-direction: column;
+  }
+
+  .register-info__actual-price{
+    font-weight: 600;
+    color: var(--state-success, #2D8631);
+    margin: 0.5rem 0;
+    font-size: 24px;
+  }
+
+  .register-info__title{
+    color: var(--neutral-600, #272727);
+    font-weight: 600;
+  }
+
+  .register-info__first{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    
+  }
+
+
+  @media(min-width:1100px){
+    .main-info{
+        grid-template-columns: 1fr 2fr;
+      }
+  }
+
+  @media(min-width:1350px){
+    .main-info{
+        grid-template-columns: 1fr 4fr;
+      }
+  }
 
 :host ::ng-deep{
     .legend-title-text{

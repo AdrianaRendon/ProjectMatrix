@@ -1,16 +1,67 @@
-<div class="graph" *ngIf="getDataFirebaseFilter  && getDataFirebaseFilter.length > 0">
-  <ngx-charts-line-chart
-    [view]="view"
-    [scheme]="colorScheme"
-    [legend]="legend"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxis]="xAxis"
-    [yAxis]="yAxis"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    [timeline]="timeline"
-    [results]="data"
-  >
-  </ngx-charts-line-chart>
+<div class="main-info">
+  <div class="metal-image">
+       <div class="container-box"> 
+        <div class="container-image">
+          <img class = "medal-box" src="assets/images/medal.png" alt="Image no data">
+        </div>
+        <div *ngIf="getDataFirebaseFilter && getDataFirebaseFilter.length > 0">
+          <div class="register-info__flex">
+            <div class="register-info__title">
+                Valor actual
+            </div>
+            <div class="register-info__actual-price">
+              {{getDataFirebaseFilter[getDataFirebaseFilter.length -1].vlMedalIncrement | currency}}
+            </div>
+            <div class="register-info__date">
+              {{getDataFirebaseFilter[getDataFirebaseFilter.length -1].dateCurrent}}
+            </div>
+          </div>
+          <div class="register-info__title register-info__first">
+            Primeros 3 registros
+        </div>
+          <div class="register-info">
+            <div class="register-info__price">
+              {{getDataFirebaseFilter[2].vlMedalIncrement | currency}}
+            </div>
+            <div class="register-info__date">
+              {{getDataFirebaseFilter[2].dateCurrent}}
+            </div>
+          </div >
+          <div class="register-info">
+            <div class="register-info__price">
+              {{getDataFirebaseFilter[1].vlMedalIncrement | currency}}
+            </div>
+            <div class="register-info__date">
+              {{getDataFirebaseFilter[1].dateCurrent}}
+            </div>
+          </div >
+          <div class="register-info">
+            <div class="register-info__price">
+              {{getDataFirebaseFilter[0].vlMedalIncrement | currency}}
+            </div>
+            <div class="register-info__date">
+              {{getDataFirebaseFilter[0].dateCurrent}}
+            </div>
+          </div >
+        </div>
+       </div>
+  </div>
+  <div>
+    <div class="graph" *ngIf="getDataFirebaseFilter  && getDataFirebaseFilter.length > 0">
+      <ngx-charts-line-chart
+        [view]="view"
+        [scheme]="colorScheme"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [timeline]="timeline"
+        [results]="data"
+      >
+      </ngx-charts-line-chart>
+    </div>
+    
+  </div>
 </div>

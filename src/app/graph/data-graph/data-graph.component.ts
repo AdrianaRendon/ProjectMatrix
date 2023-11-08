@@ -12,7 +12,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class DataGraphComponent implements OnChanges{
   public data: Idata[] = [];
   public dataArray: ISeries[] = [];
-  view: [number, number] = [1100, 500];
+  public innerWidth: any;
+  view: [number, number] = [200, 500];
   //public getDataFirebase: DataCalculate[] = [];
 
   // options
@@ -39,6 +40,14 @@ export class DataGraphComponent implements OnChanges{
   @Input() getDataFirebaseFilter: any;
 
   constructor() {}
+
+  ngOnInit() {
+    this.innerWidth = window.innerWidth;
+    if (this.innerWidth > 375 && this.innerWidth < 1100)
+      this.view = [this.innerWidth * 0.8, 500];
+    else
+      this.view = [this.innerWidth * 0.6, 500];
+}
 
   ngOnChanges() {
     if (this.getDataFirebase) 
@@ -76,5 +85,9 @@ export class DataGraphComponent implements OnChanges{
   orderbyDate(a: ISeries, b: ISeries) {
     return a.name > b.name ? 1 : -1;
   }
+
+  onResize(event: any) {
+    this.view = [event.target.innerWidth / 1.35, 400];
+}
 
 }

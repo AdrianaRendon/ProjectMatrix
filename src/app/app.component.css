@@ -37,7 +37,7 @@ img {
 
 .container{
   margin-top: 3rem;
-  padding: 0 1rem;
+  padding: 0 3rem;
 }
 
 @media(max-width:1366px){
@@ -47,6 +47,9 @@ img {
 
   .title-container__subtitle {
     font-size: 2rem;
+  }
+  .container{
+    padding: 0 1rem;
   }
 }
 
