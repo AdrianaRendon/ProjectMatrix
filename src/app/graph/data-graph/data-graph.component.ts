@@ -13,7 +13,7 @@ export class DataGraphComponent implements OnChanges{
   public data: Idata[] = [];
   public dataArray: ISeries[] = [];
   public innerWidth: any;
-  view: [number, number] = [200, 500];
+  view: [number, number] = [300, 300];
   //public getDataFirebase: DataCalculate[] = [];
 
   // options
@@ -44,8 +44,8 @@ export class DataGraphComponent implements OnChanges{
   ngOnInit() {
     this.innerWidth = window.innerWidth;
     if (this.innerWidth > 375 && this.innerWidth < 1100)
-      this.view = [this.innerWidth * 0.8, 500];
-    else
+      this.view = [this.innerWidth * 0.8, 400];
+    else if (this.innerWidth > 1100)
       this.view = [this.innerWidth * 0.6, 500];
 }
 
