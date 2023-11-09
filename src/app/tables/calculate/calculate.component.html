@@ -80,14 +80,24 @@
         type="date" [min]="dateMin"
       />
     </div>
+    <div class="div-imagen">
+      <img class="warning-info"
+                src="assets/images/trash.png"
+                alt="Delete register"
+              />
+    </div>
   </div>
-  <div class="message-info" *ngIf="showMessageInfo">
+  <!-- <div class="message-info" *ngIf="showMessageInfo">
     El rango de fechas que se muestra en un inicio se toma desde un mes antes
     desde la última fecha ingresada
+  </div> -->
+</div>
+<div class="container-title-table">
+  <input type="checkbox" [(ngModel)]="visibleTable" />
+  <div class="table-tittle">
+    MATRIZ DE VENTA
   </div>
 </div>
-<input type="checkbox" [(ngModel)]="visibleTable" />
-
 <div class="table" *ngIf="getDataFirebase && getDataFirebaseFilter.length > 0">
   <div class="table-title without-color">
     <span class="table-border">Fecha</span>
@@ -128,9 +138,8 @@
       <!-- <span>{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
       <span>{{ elementDataBase.incrementIva.toLocaleString("en-US") }}</span> -->
       <!-- <span>{{ elementDataBase.medalVl.toLocaleString("en-US") }}</span> -->
-      <span>{{
-        elementDataBase.vlMedalIncrement.toLocaleString("en-US")
-      }}</span>
+      <span>${{
+         elementDataBase.vlMedalIncrement.toLocaleString("en-US")}}</span>
       <span>
         <div class="container-buttons">
           <!-- <div (click)="editRegister(elementDataBase)">

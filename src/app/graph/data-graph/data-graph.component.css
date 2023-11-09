@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    margin-top: 3rem;    
+    margin-top: 2rem;    
     align-items: end;
   }
   
@@ -23,8 +23,8 @@
   }
   
   .medal-box{
-    width: 15rem;
-    height: 15rem;
+    width: 13rem;
+    height: 13rem;
   }
 
   .container-image{
