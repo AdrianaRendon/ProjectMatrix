@@ -36,7 +36,6 @@ export class CalculateComponent implements OnChanges {
   public vlMedalIncrement: number = 0;
   public showMessageInfo: boolean = true;
   public getDataFirebaseFilter: any = [];
-  public visibleTable: boolean = true;
   public visibleFormula: boolean = false;  
   public dateMin = '2023-07-15';
   public selectedValue: number = 0;

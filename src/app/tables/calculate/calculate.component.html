@@ -86,12 +86,12 @@
         type="date" [min]="dateMin"
       />
     </div>
-    <div class="div-imagen">
+    <!-- <div class="div-imagen">
       <img class="warning-info"
                 src="assets/images/trash.png"
                 alt="Delete register"
               />
-    </div>
+    </div> -->
   </div>
   <!-- <div class="message-info" *ngIf="showMessageInfo">
     El rango de fechas que se muestra en un inicio se toma desde un mes antes
@@ -99,7 +99,6 @@
   </div> -->
 </div>
 <div class="container-title-table">
-  <input type="checkbox" [(ngModel)]="visibleTable" />
   <div class="table-tittle">
     MATRIZ DE VENTA
   </div>
@@ -124,8 +123,10 @@
     <span class="without-color">Valor medalla final</span>
     <span class="without-color">Acciones</span>
   </div>
-  <!-- <div [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll' " > -->
-    <div [ngClass]="selectedValue == 0 ? 'table-info-full' : 'table-info'" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
+  <!-- selectedValue == 0 ? 'table-info-full' : 'table-info', -->
+  <!-- [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll' " -->
+  <div  >
+    <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 7, 'table-info-full' : selectedValue == 0, 'table-info' : selectedValue != 0}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
       <span class="table-border" [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
         elementDataBase.dateCurrent | date : "yyyy-MM-dd"
       }}</span>
@@ -164,5 +165,5 @@
         </div>
       </span>
     </div>
-  <!-- </div> -->
+  </div>
 </div> 
