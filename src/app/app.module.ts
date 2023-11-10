@@ -11,13 +11,16 @@ import { GraphModule } from './graph/graph.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ModalComponent } from './shared/modal/modal.component';
+import { FormsModule } from '@angular/forms';
 
 TablesModule
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ TablesModule
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     NgxChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

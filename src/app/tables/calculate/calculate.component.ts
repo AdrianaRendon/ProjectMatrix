@@ -42,6 +42,8 @@ export class CalculateComponent implements OnChanges {
 
   @Input() getDataFirebase: any;
   @Input() valueConst: any;
+  @Input() visibleAllTable: any;
+  @Input() visibleInput: any;
   @Output() emitVaues = new EventEmitter<any>();
   @Output() deleteElement = new EventEmitter<any>();
   @Output() emitValuesConst = new EventEmitter<any>();

@@ -1,14 +1,30 @@
-<div class="header-container">
-  <img src="assets/images/A&Metals.png" title="A & Metals" />
-  <div class="title-container"> 
-    <h1 class="title-container__main">MEDALLA DE ARTE Y CAPITALIZACIÓN</h1>  
-    <h2 class="title-container__subtitle">Transformando vidas</h2>                    
-  </div>       
-</div>  
+<div class="header-container-main">
+  <div class="header-container">
+    <img src="assets/images/A&Metals.png" title="A & Metals" />
+    <div class="title-container"> 
+      <h1 class="title-container__main">MEDALLA DE ARTE Y CAPITALIZACIÓN</h1>  
+      <h2 class="title-container__subtitle">Transformando vidas</h2>                    
+    </div>       
+  </div>  
+  <a class="show-options" href="#openModal" >
+    <img class="logo-options"
+              src="assets/images/trash.png"
+              alt="Delete register"
+            />
+  </a> 
+  <a class="show-options" href="#openModalFormula" >
+    <img class="formula-options"
+              src="assets/images/trash.png"
+              alt="Delete register"
+            />
+  </a> 
+</div>
 <div class="container">
   <app-calculate
     [valueConst]="valueConst"
     [getDataFirebase]="getDataFirebase"
+    [visibleAllTable] = "visibleAllTable"
+    [visibleInput] = "visibleInput"
     (emitVaues)="calculate($event)"
     (deleteElement)="deleteRegister($event)"           
     (emitValuesConst)="addValueConst($event)" 
@@ -25,4 +41,29 @@
       No hay información dentro del rango seleccionado
     </span>
   </div>
+</div>
+<div id="openModal" class="modalDialog">
+	<div>
+		<a href="#close" title="Close" class="close">X</a>
+		<div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="visibleAllTable" [(ngModel)] = "visibleAllTable">
+      <label class="form-check-label" >
+        visibleAllTable
+      </label>
+  </div>
+  <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="visibleInput" [(ngModel)] = "visibleInput">
+      <label class="form-check-label" for="visibleInput">
+        visibleInput
+      </label>
+  </div>
+	</div>
+</div>
+<div id="openModalFormula" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <img class="logo-options"
+    src="assets/images/Formula.jpeg"
+    alt="Delete register"/>
+  </div>  
 </div>

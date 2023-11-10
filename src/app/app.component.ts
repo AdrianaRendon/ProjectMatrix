@@ -12,6 +12,9 @@ export class AppComponent {
   public getDataFirebase: any = null;
   public dataFirebaseFilter: any = [];
   public valueConst: any = null;
+  public showModalFlag: boolean = false;
+  public visibleAllTable: boolean = true;
+  public visibleInput: boolean = true;
 
   constructor(private firebaseService: FirebaseService,
     private loadingService: LoaderService) {
@@ -64,7 +67,6 @@ export class AppComponent {
   }
 
   async updateValueConst(valueConst: any) {
-    debugger
     this.loadingService.setLoading(true);
     await this.firebaseService.updateValueConst(valueConst, valueConst.id);    
     this.loadingService.setLoading(false);
@@ -72,5 +74,56 @@ export class AppComponent {
 
   getDataFirebaseFilter(dataFirebase: any){
     this.dataFirebaseFilter = dataFirebase;
+  }
+
+   showModal(){
+    Swal.fire({
+      title: 'Do you have a bike?',
+      input: 'checkbox',
+      inputPlaceholder: 'I have a bike'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (result.value) {
+          Swal.fire({icon: 'success', text: 'You have a bike!'});
+        } else {
+          Swal.fire({icon: 'error', text: "You don't have a bike :("});
+        }
+      } else {
+        console.log(`modal was dismissed by ${result.dismiss}`)
+      }
+    })
+    // Swal.fire({
+    //   title: 'Particularidade',
+    //   html: '<h3>visibleAllTable <input type="checkbox" id="visibleAllTable"  /></h3><p/>' +
+    //         '<h3>visibleInput <input type="checkbox" id="visibleInput"  /></h3>',
+    //   confirmButtonText: 'confirmar',
+    //   preConfirm: () => {
+    //   const checkboxes: NodeList = document.querySelectorAll('input[type="checkbox"]')
+    //   checkboxes.forEach((checkbox: HTMLInputElement) => {
+    //     if (checkbox.id == 'visibleAllTable') {
+    //       this.visibleAllTable = checkbox.checked;
+    //     } 
+    //     if (checkbox.id == 'visibleInput') {
+    //       this.visibleInput = checkbox.checked;
+    //     } 
+    //   });
+    //   }
+    // }).then((result) => {
+    //   Swal.fire('Ok');
+    // })
+  }
+
+  closeModal(modal: boolean){
+    this.showModalFlag = modal;
+  }
+
+  onVisibleAllTable(){
+    debugger
+    this.visibleAllTable = !this.visibleAllTable;
+  }
+
+  onVisibleInput(){
+    debugger
+    this.visibleInput = !this.visibleInput;
   }
 }

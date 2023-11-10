@@ -1,15 +1,7 @@
-<select [(ngModel)]="selectedValue">
-  <option [ngValue] ="0">Mostrar tabla</option>
-  <option [ngValue] ="1">Mostrar tabla completa</option>
-  <option [ngValue] ="2">Mostrar opciones</option>
-  <option [ngValue] ="3">Ocultar opciones</option>
-</select> 
-<div *ngIf="selectedValue == 0">
+<pre>{{visibleAllTable}}, visibleAllTable</pre>
+<pre>{{visibleInput}}, visibleInput</pre>
+<div *ngIf="visibleInput">
   <div class="container-formula">
-    <div>
-      <label class="style-label">Mostrar formula </label>
-      <input type="checkbox" [(ngModel)]="visibleFormula" />
-    </div>
     <img *ngIf="visibleFormula"
       class="image-formula"
       src="assets/images/Formula.jpeg"
@@ -103,47 +95,82 @@
     MATRIZ DE VENTA
   </div>
 </div>
-<div class="table" *ngIf="getDataFirebase && getDataFirebaseFilter.length > 0">
-  <div [ngClass]="selectedValue == 0 ? 'table-title-full' : 'table-title'">
+<!-- <div class="table" *ngIf="getDataFirebase && getDataFirebaseFilter.length > 0 && !visibleAllTable" >
+  <div class="table-title">
     <span class="table-border without-color">Fecha</span>
     <span class="without-color">Vr. Gold Price OZ</span>
     <span class="without-color">TRM</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Vr Pesos OZ</span>
-    <span class="without-color" *ngIf="selectedValue == 0">OZ TY GR</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Valor Gr Oro puro</span>
     <span class="without-color">Gramos medalla</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Valor material</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Costos operativos</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Base</span>
     <span class="without-color">IVA</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Vr. IVA</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Incremento</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Incremento Iva</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Valor Medalla</span>
     <span class="without-color">Valor medalla final</span>
     <span class="without-color">Acciones</span>
   </div>
-  <!-- selectedValue == 0 ? 'table-info-full' : 'table-info', -->
-  <!-- [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll' " -->
   <div  >
-    <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 7, 'table-info-full' : selectedValue == 0, 'table-info' : selectedValue != 0}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
+    <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 7, 'table-info-full' : visibleAllTable, 'table-info' : selectedValue != 0}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
       <span class="table-border" [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
         elementDataBase.dateCurrent | date : "yyyy-MM-dd"
       }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.vlGoldPrice.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.trm.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.vlCopOZ.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.ozTyGr.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.vlGrGold.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.medalGr.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.materialVl.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.utility.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.base.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.ivaValueConst.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.ivaVl.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.incrementIva.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.medalVl.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">${{
+         elementDataBase.vlMedalIncrement.toLocaleString("en-US")}}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">
+        <div class="container-buttons">
+          <div (click)="deleteRegister(elementDataBase)" *ngIf="showTrash(i)">
+            <img
+              class="logo"
+              src="assets/images/trash.png"
+              alt="Delete register"
+            />
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>  -->
+<div class="table" *ngIf="getDataFirebase && getDataFirebaseFilter.length > 0">
+  <div [ngClass]="visibleAllTable ? 'table-title-full' : 'table-title'">
+    <span class="table-border without-color">Fecha</span>
+    <span class="without-color">Vr. Gold Price OZ</span>
+    <span class="without-color">TRM</span>
+    <span class="without-color" *ngIf="visibleAllTable">Vr Pesos OZ</span>
+    <span class="without-color" *ngIf="visibleAllTable">OZ TY GR</span>
+    <span class="without-color" *ngIf="visibleAllTable">Valor Gr Oro puro</span>
+    <span class="without-color">Gramos medalla</span>
+    <span class="without-color" *ngIf="visibleAllTable">Valor material</span>
+    <span class="without-color" *ngIf="visibleAllTable">Costos operativos</span>
+    <span class="without-color" *ngIf="visibleAllTable">Base</span>
+    <span class="without-color">IVA</span>
+    <span class="without-color" *ngIf="visibleAllTable">Vr. IVA</span>
+    <span class="without-color" *ngIf="visibleAllTable">Incremento</span>
+    <span class="without-color" *ngIf="visibleAllTable">Incremento Iva</span>
+    <span class="without-color" *ngIf="visibleAllTable">Valor Medalla</span>
+    <span class="without-color">Valor medalla final</span>
+    <span class="without-color">Acciones</span>
+  </div>
+  <!-- visibleInput ? 'table-info-full' : 'table-info', -->
+  <!-- [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll' " -->
+  <div  >
+    <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 7, 'table-info-full' : visibleAllTable, 'table-info' : !visibleAllTable}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
+      <span class="table-border" [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
+        elementDataBase.dateCurrent | date : "yyyy-MM-dd"
+      }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.vlGoldPrice.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.trm.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.vlCopOZ.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.ozTyGr.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.vlGrGold.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.medalGr.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.materialVl.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.utility.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.base.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.ivaValueConst.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.ivaVl.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.incrementIva.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.medalVl.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">${{
          elementDataBase.vlMedalIncrement.toLocaleString("en-US")}}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">
