@@ -11,7 +11,6 @@ import { GraphModule } from './graph/graph.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { ModalComponent } from './shared/modal/modal.component';
 import { FormsModule } from '@angular/forms';
 
 TablesModule
@@ -19,8 +18,7 @@ TablesModule
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent,
-    ModalComponent
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

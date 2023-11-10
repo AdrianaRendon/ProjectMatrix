@@ -2,7 +2,6 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 import DataCalculate from 'src/app/interface/datacalculate.interface';
 import { ISeries, Idata } from 'src/app/models/data.interface';
-import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-data-graph',
@@ -14,7 +13,6 @@ export class DataGraphComponent implements OnChanges{
   public dataArray: ISeries[] = [];
   public innerWidth: any;
   view: [number, number] = [300, 300];
-  //public getDataFirebase: DataCalculate[] = [];
 
   // options
   legend: boolean = true;

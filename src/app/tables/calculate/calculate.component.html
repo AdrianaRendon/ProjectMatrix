@@ -1,5 +1,3 @@
-<pre>{{visibleAllTable}}, visibleAllTable</pre>
-<pre>{{visibleInput}}, visibleInput</pre>
 <div *ngIf="visibleInput">
   <div class="container-formula">
     <img *ngIf="visibleFormula"
@@ -75,61 +73,15 @@
       <input
         [ngModel]="dateTo | date : 'yyyy-MM-dd'"
         (ngModelChange)="changeDate($event, 0)"
-        type="date" [min]="dateMin"
-      />
+        type="date" [min]="dateMin"/>
     </div>
-    <!-- <div class="div-imagen">
-      <img class="warning-info"
-                src="assets/images/trash.png"
-                alt="Delete register"
-              />
-    </div> -->
   </div>
-  <!-- <div class="message-info" *ngIf="showMessageInfo">
-    El rango de fechas que se muestra en un inicio se toma desde un mes antes
-    desde la última fecha ingresada
-  </div> -->
 </div>
 <div class="container-title-table">
   <div class="table-tittle">
     MATRIZ DE VENTA
   </div>
 </div>
-<!-- <div class="table" *ngIf="getDataFirebase && getDataFirebaseFilter.length > 0 && !visibleAllTable" >
-  <div class="table-title">
-    <span class="table-border without-color">Fecha</span>
-    <span class="without-color">Vr. Gold Price OZ</span>
-    <span class="without-color">TRM</span>
-    <span class="without-color">Gramos medalla</span>
-    <span class="without-color">IVA</span>
-    <span class="without-color">Valor medalla final</span>
-    <span class="without-color">Acciones</span>
-  </div>
-  <div  >
-    <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 7, 'table-info-full' : visibleAllTable, 'table-info' : selectedValue != 0}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
-      <span class="table-border" [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
-        elementDataBase.dateCurrent | date : "yyyy-MM-dd"
-      }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.vlGoldPrice.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.trm.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.medalGr.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.ivaValueConst.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">${{
-         elementDataBase.vlMedalIncrement.toLocaleString("en-US")}}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">
-        <div class="container-buttons">
-          <div (click)="deleteRegister(elementDataBase)" *ngIf="showTrash(i)">
-            <img
-              class="logo"
-              src="assets/images/trash.png"
-              alt="Delete register"
-            />
-          </div>
-        </div>
-      </span>
-    </div>
-  </div>
-</div>  -->
 <div class="table" *ngIf="getDataFirebase && getDataFirebaseFilter.length > 0">
   <div [ngClass]="visibleAllTable ? 'table-title-full' : 'table-title'">
     <span class="table-border without-color">Fecha</span>
@@ -150,8 +102,6 @@
     <span class="without-color">Valor medalla final</span>
     <span class="without-color">Acciones</span>
   </div>
-  <!-- visibleInput ? 'table-info-full' : 'table-info', -->
-  <!-- [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll' " -->
   <div  >
     <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 7, 'table-info-full' : visibleAllTable, 'table-info' : !visibleAllTable}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
       <span class="table-border" [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
@@ -175,13 +125,6 @@
          elementDataBase.vlMedalIncrement.toLocaleString("en-US")}}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">
         <div class="container-buttons">
-          <!-- <div (click)="editRegister(elementDataBase)">
-          <img
-            class="logo"
-            src="./../../../assets/images/edit.png"
-            alt="Edit register"
-          />
-        </div> -->
           <div (click)="deleteRegister(elementDataBase)" *ngIf="showTrash(i)">
             <img
               class="logo"
