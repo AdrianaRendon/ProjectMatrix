@@ -4,7 +4,6 @@
   <option [ngValue] ="2">Mostrar opciones</option>
   <option [ngValue] ="3">Ocultar opciones</option>
 </select> 
-<pre>{{selectedValue  }}</pre>
 <div *ngIf="selectedValue == 0">
   <div class="container-formula">
     <div>
@@ -110,13 +109,13 @@
     <span class="table-border without-color">Fecha</span>
     <span class="without-color">Vr. Gold Price OZ</span>
     <span class="without-color">TRM</span>
-    <!-- <span class="without-color" *ngIf="selectedValue == 0">Vr Pesos OZ</span>
+    <span class="without-color" *ngIf="selectedValue == 0">Vr Pesos OZ</span>
     <span class="without-color" *ngIf="selectedValue == 0">OZ TY GR</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Valor Gr Oro puro</span> -->
+    <span class="without-color" *ngIf="selectedValue == 0">Valor Gr Oro puro</span>
     <span class="without-color">Gramos medalla</span>
-    <!-- <span class="without-color" *ngIf="selectedValue == 0">Valor material</span>
+    <span class="without-color" *ngIf="selectedValue == 0">Valor material</span>
     <span class="without-color" *ngIf="selectedValue == 0">Costos operativos</span>
-    <span class="without-color" *ngIf="selectedValue == 0">Base</span> -->
+    <!-- <span class="without-color" *ngIf="selectedValue == 0">Base</span> -->
     <span class="without-color">IVA</span>
     <!-- <span>Vr. IVA</span> -->
     <!-- <span>Incremento</span>
@@ -125,20 +124,20 @@
     <span class="without-color">Valor medalla final</span>
     <span class="without-color">Acciones</span>
   </div>
-  <div [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll' " >
+  <!-- <div [ngClass]="getDataFirebaseFilter.length > 8 ? 'show-scroll' : 'hide-scroll' " > -->
     <div [ngClass]="selectedValue == 0 ? 'table-info-full' : 'table-info'" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
       <span class="table-border" [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
         elementDataBase.dateCurrent | date : "yyyy-MM-dd"
       }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.vlGoldPrice.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.trm.toLocaleString("en-US") }}</span>
-      <!-- <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.vlCopOZ.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.vlCopOZ.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.ozTyGr.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.vlGrGold.toLocaleString("en-US") }}</span> -->
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.vlGrGold.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.medalGr.toLocaleString("en-US") }}</span>
-      <!-- <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.materialVl.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.materialVl.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.utility.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.base.toLocaleString("en-US") }}</span> -->
+      <!-- <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.base.toLocaleString("en-US") }}</span> -->
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.ivaValueConst.toLocaleString("en-US") }}</span>
       <!-- <span>{{ elementDataBase.ivaVl.toLocaleString("en-US") }}</span> -->
       <!-- <span>{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
@@ -165,5 +164,5 @@
         </div>
       </span>
     </div>
-  </div>
+  <!-- </div> -->
 </div> 
