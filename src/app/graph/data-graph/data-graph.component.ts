@@ -15,7 +15,6 @@ export class DataGraphComponent implements OnChanges{
   view: [number, number] = [300, 300];
 
   // options
-  legend: boolean = true;
   showLabels: boolean = true;
   animations: boolean = true;
   xAxis: boolean = true;
@@ -27,12 +26,11 @@ export class DataGraphComponent implements OnChanges{
   timeline: boolean = true;
 
   colorScheme: Color = {
-    name: 'myScheme',
+    name: 'matrix',
     selectable: true,
     group: ScaleType.Ordinal,
     domain: ['#F4CC25', '#7da555', '#FFFFF'],
   };
-
 
   @Input() getDataFirebase: any;
   @Input() getDataFirebaseFilter: any;
@@ -45,7 +43,7 @@ export class DataGraphComponent implements OnChanges{
       this.view = [this.innerWidth * 0.8, 400];
     else if (this.innerWidth > 1100)
       this.view = [this.innerWidth * 0.6, 500];
-}
+  }
 
   ngOnChanges() {
     if (this.getDataFirebase) 
@@ -86,6 +84,5 @@ export class DataGraphComponent implements OnChanges{
 
   onResize(event: any) {
     this.view = [event.target.innerWidth / 1.35, 400];
-}
-
+  }
 }

@@ -3,7 +3,6 @@ import {
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
 } from '@angular/core';
 import DataCalculate from 'src/app/interface/datacalculate.interface';
@@ -36,9 +35,7 @@ export class CalculateComponent implements OnChanges {
   public vlMedalIncrement: number = 0;
   public showMessageInfo: boolean = true;
   public getDataFirebaseFilter: any = [];
-  public visibleFormula: boolean = false;  
   public dateMin = '2023-07-15';
-  public selectedValue: number = 0;
 
   @Input() getDataFirebase: any;
   @Input() valueConst: any;
@@ -138,10 +135,7 @@ export class CalculateComponent implements OnChanges {
         ozTyGr: this.ozTyGr,
         vlGrGold: this.calculateVlGrGold(this.vlCopOZ, this.ozTyGr),
         medalGr: this.medalGr,
-        materialVl: this.calculateMaterialVl(
-          this.vlGrGold,
-          this.medalGr
-        ),
+        materialVl: this.calculateMaterialVl(this.vlGrGold,this.medalGr),
         utility: this.utility,
         base: this.caculateBase(this.materialVl, this.utility),
         dateCurrent: this.dateCurrent,
@@ -226,8 +220,7 @@ export class CalculateComponent implements OnChanges {
 
     } catch (error) {
       this.showMessageEror('Acaba de ocurrir un error por favor contacte a sus administrador', 'warning');
-    }
-    
+    }    
   }
 
   loadValues(values: ValueConstTable) {
@@ -254,10 +247,6 @@ export class CalculateComponent implements OnChanges {
 
   orderbyDate(a: any, b: any) {
     return a.dateCurrent > b.dateCurrent ? 1 : -1;
-  }
-
-  editRegister(elementDataBase: any) {
-    console.log(elementDataBase);
   }
 
   deleteRegister(elementDataBase: any) {

@@ -1,23 +1,19 @@
-/* Cambiar el ancho de la barra de desplazamiento */
 ::-webkit-scrollbar {
-  width: 1px; /* Cambia el ancho de la barra de desplazamiento */
+  width: 1px;
   height: 3px;
 }
 
-/* Cambiar el color de fondo de la barra de desplazamiento */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Cambia el color de fondo de la barra de desplazamiento */
+  background: #f1f1f1; 
 }
 
-/* Cambiar el color de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb {
-  background: #38551c; /* Cambia el color de la barra de desplazamiento */
+  background: #38551c;
   border-radius: 5px; 
 }
 
-/* Cambiar el color del fondo al pasar el mouse por encima de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb:hover {
-  background: #38551c; /* Cambia el color de fondo al pasar el mouse por encima de la barra de desplazamiento */
+  background: #38551c; 
 }
 
 .button-save {
@@ -194,25 +190,23 @@ span{
   font-weight: bold;
 }
 
-@media(min-width:500px){
-  .filter-date {
-    flex-direction: row;
-  }
-}
-
 .container{
   margin-bottom: 2rem;
 }
 
-@media(min-width:1100px){
-  .filter-date {
-    gap: 8rem;
-  }
+.style-input__gap{
+  gap: 1rem;
 }
 
 @media(max-width:375px){
   .style-input {
     flex-direction: column;
+  }
+}
+
+@media(min-width:500px){
+  .filter-date {
+    flex-direction: row;
   }
 }
 
@@ -229,30 +223,14 @@ span{
   }  
 }
 
+@media(min-width:1100px){
+  .filter-date {
+    gap: 8rem;
+  }
+}
+
 @media(max-width:1100px){
   .static-data {
     grid-template-columns: 1fr;
   }
-}
-
-.increment-table{
-  padding: 2rem;
-  border: 1px solid;
-  border-radius: 5px;
-}
-
-.style-label {
-  font-weight: 600;
-  display: inline-block;
-  width: 135px;
-}
-
-.style-input__gap{
-  gap: 1rem;
-}
-
-.message-info{
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
 }

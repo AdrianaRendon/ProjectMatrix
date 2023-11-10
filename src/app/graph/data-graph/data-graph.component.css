@@ -90,8 +90,3 @@
       }
   }
 
-:host ::ng-deep{
-    .legend-title-text{
-        display: none !important; 
-    }    
-}

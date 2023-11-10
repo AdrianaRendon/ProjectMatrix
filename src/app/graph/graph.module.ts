@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { DataGraphComponent } from './data-graph/data-graph.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-
-
 @NgModule({
   declarations: [
     DataGraphComponent
