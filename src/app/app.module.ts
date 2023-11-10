@@ -10,15 +10,13 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { GraphModule } from './graph/graph.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { FormsModule } from '@angular/forms';
 
 TablesModule
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SpinnerComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

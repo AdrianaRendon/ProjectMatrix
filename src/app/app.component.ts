@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from './services/firebase.service';
 import Swal from 'sweetalert2';
-import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +15,12 @@ export class AppComponent {
   public visibleAllTable: boolean = true;
   public visibleInput: boolean = true;
 
-  constructor(private firebaseService: FirebaseService,
-    private loadingService: LoaderService) {
+  constructor(private firebaseService: FirebaseService) {
   }
 
   async ngOnInit()  {
-    this.loadingService.setLoading(true);
     await this.getValuesConst();
     await this.getData();    
-    this.loadingService.setLoading(false);
   }
 
   async getData () {
@@ -36,7 +32,6 @@ export class AppComponent {
   }
 
   async calculate(values: any) {  
-    this.loadingService.setLoading(true);
     const result = await this.firebaseService.addRegister(values);    
     if (result) {
       Swal.fire({
@@ -48,28 +43,20 @@ export class AppComponent {
       });      
       await this.getData();
     }
-    this.loadingService.setLoading(false);
   }
 
   async addValueConst(values: any){
-    this.loadingService.setLoading(true);
     await this.firebaseService.addValueConst(values);            
     await this.getData();
-    
-    this.loadingService.setLoading(false);
   }
 
   async deleteRegister(element: any){
-    this.loadingService.setLoading(true);
     await this.firebaseService.deleteRegister(element.id);       
     await this.getData();
-    this.loadingService.setLoading(false);
   }
 
   async updateValueConst(valueConst: any) {
-    this.loadingService.setLoading(true);
-    await this.firebaseService.updateValueConst(valueConst, valueConst.id);    
-    this.loadingService.setLoading(false);
+    await this.firebaseService.updateValueConst(valueConst, valueConst.id);  
   }
 
   getDataFirebaseFilter(dataFirebase: any){
