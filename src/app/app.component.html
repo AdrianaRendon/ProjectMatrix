@@ -6,18 +6,20 @@
       <h2 class="title-container__subtitle">Transformando vidas</h2>                    
     </div>       
   </div>  
-  <a class="show-options" href="#openModal" >
-    <img class="logo-options"
-              src="assets/images/trash.png"
-              alt="Delete register"
-            />
-  </a> 
-  <a class="show-options" href="#openModalFormula" >
-    <img class="formula-options"
-              src="assets/images/trash.png"
-              alt="Delete register"
-            />
-  </a> 
+  <div class="options">
+    <a class="show-options" href="#openModalFormula" >
+      <img class="formula-options"
+                src="assets/images/Eye.png"
+                alt="Delete register"
+              />
+    </a> 
+    <a class="show-options" href="#openModal" >
+      <img class="logo-options"
+                src="assets/images/settings.png"
+                alt="Delete register"
+              />
+    </a>     
+</div>
 </div>
 <div class="container">
   <app-calculate
@@ -45,25 +47,30 @@
 <div id="openModal" class="modalDialog">
 	<div>
 		<a href="#close" title="Close" class="close">X</a>
-		<div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="visibleAllTable" [(ngModel)] = "visibleAllTable">
-      <label class="form-check-label" >
-        visibleAllTable
-      </label>
-  </div>
-  <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="visibleInput" [(ngModel)] = "visibleInput">
-      <label class="form-check-label" for="visibleInput">
-        visibleInput
-      </label>
-  </div>
+    <h2 class="modal-title">CONFIGURACIÓN</h2>
+      <div class="modal-checks">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="visibleAllTable" [(ngModel)] = "visibleAllTable">
+          <label class="form-check-label" >
+            Mostrar todas las columnas
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="visibleInput" [(ngModel)] = "visibleInput">
+          <label class="form-check-label" for="visibleInput">
+            Mostrar opciones de inserción
+          </label>
+        </div>
+      </div>
 	</div>
 </div>
-<div id="openModalFormula" class="modalDialog">
+<div id="openModalFormula" class="modalDialog modalDialogFormula">
   <div>
     <a href="#close" title="Close" class="close">X</a>
-    <img class="logo-options"
-    src="assets/images/Formula.jpeg"
-    alt="Delete register"/>
+    <div class="modal-image">
+      <img class="logo-formula"
+      src="assets/images/Formula.png"
+      alt="Delete register"/>
+    </div>
   </div>  
 </div>

@@ -1,6 +1,7 @@
 /* Cambiar el ancho de la barra de desplazamiento */
 ::-webkit-scrollbar {
   width: 1px; /* Cambia el ancho de la barra de desplazamiento */
+  height: 3px;
 }
 
 /* Cambiar el color de fondo de la barra de desplazamiento */
@@ -10,13 +11,13 @@
 
 /* Cambiar el color de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb {
-  background: #99ccff; /* Cambia el color de la barra de desplazamiento */
+  background: #38551c; /* Cambia el color de la barra de desplazamiento */
   border-radius: 5px; 
 }
 
 /* Cambiar el color del fondo al pasar el mouse por encima de la barra de desplazamiento */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Cambia el color de fondo al pasar el mouse por encima de la barra de desplazamiento */
+  background: #38551c; /* Cambia el color de fondo al pasar el mouse por encima de la barra de desplazamiento */
 }
 
 .button-save {
@@ -191,14 +192,14 @@
   font-weight: bold;
 }
 
-span{
-  min-width: 140px;
-}
-
 @media(min-width:500px){
   .filter-date {
     flex-direction: row;
   }
+}
+
+.container{
+  margin-bottom: 2rem;
 }
 
 @media(min-width:1100px){

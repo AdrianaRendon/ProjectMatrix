@@ -1,4 +1,4 @@
-<div *ngIf="visibleInput">
+<div class="container" *ngIf="visibleInput">
   <div class="container-formula">
     <img *ngIf="visibleFormula"
       class="image-formula"
@@ -121,7 +121,7 @@
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.incrementIva.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="visibleAllTable">{{ elementDataBase.medalVl.toLocaleString("en-US") }}</span>
-      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">${{
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
          elementDataBase.vlMedalIncrement.toLocaleString("en-US")}}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">
         <div class="container-buttons">
