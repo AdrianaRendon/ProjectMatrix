@@ -19,7 +19,24 @@
     </a>     
 </div>
 </div>
-<div class="container">
+<div class="no-data" *ngIf="(getDataFirebase && getDataFirebase.length === 0) || (dataFirebaseFilter && dataFirebaseFilter.length === 0)">
+  <img class = "no-dataMedal" src="assets/images/NoData.png" alt="Image no data">
+  <div class="loading">
+    <span>
+      Cargando...
+    </span>
+    <span>
+      MEDALLA DE ARTE Y CAPITALIZACIÓN
+    </span>
+    <span>
+      Transformando vidas
+    </span>
+  </div>
+  <span *ngIf="(getDataFirebase && getDataFirebase.length > 0 && dataFirebaseFilter && dataFirebaseFilter.length === 0)">
+    No hay información dentro del rango seleccionado
+  </span>
+</div>
+<div class="container" *ngIf="(getDataFirebase && getDataFirebase.length > 0) || (dataFirebaseFilter && dataFirebaseFilter.length > 0)">
   <app-calculate
     [valueConst]="valueConst"
     [getDataFirebase]="getDataFirebase"
@@ -31,16 +48,9 @@
     (emitupdateValuesConst)="updateValueConst($event)"  
     (getDataFirebaseFilterEmit)="getDataFirebaseFilter($event)">
   </app-calculate>
-  <app-spinner></app-spinner>
   <app-data-graph 
     [getDataFirebase]="getDataFirebase" [getDataFirebaseFilter] = "dataFirebaseFilter">
   </app-data-graph>
-  <div class="no-data" *ngIf="(getDataFirebase && getDataFirebase.length === 0) || (dataFirebaseFilter && dataFirebaseFilter.length === 0)">
-    <img class = "no-dataMedal" src="assets/images/NoData.png" alt="Image no data">
-    <span *ngIf="(getDataFirebase && getDataFirebase.length > 0 && dataFirebaseFilter && dataFirebaseFilter.length === 0)">
-      No hay información dentro del rango seleccionado
-    </span>
-  </div>
 </div>
 <div id="openModal" class="modalDialog">
 	<div>
