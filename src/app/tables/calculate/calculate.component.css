@@ -56,7 +56,7 @@
 .table-title-full,
 .table-info-full {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(17, 1fr);
   overflow-x: unset;
 }
 

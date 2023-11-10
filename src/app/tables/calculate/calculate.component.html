@@ -115,12 +115,12 @@
     <span class="without-color">Gramos medalla</span>
     <span class="without-color" *ngIf="selectedValue == 0">Valor material</span>
     <span class="without-color" *ngIf="selectedValue == 0">Costos operativos</span>
-    <!-- <span class="without-color" *ngIf="selectedValue == 0">Base</span> -->
+    <span class="without-color" *ngIf="selectedValue == 0">Base</span>
     <span class="without-color">IVA</span>
-    <!-- <span>Vr. IVA</span> -->
-    <!-- <span>Incremento</span>
-    <span>Incremento Iva</span>
-    <span>Valor Medalla</span> -->
+    <span class="without-color" *ngIf="selectedValue == 0">Vr. IVA</span>
+    <span class="without-color" *ngIf="selectedValue == 0">Incremento</span>
+    <span class="without-color" *ngIf="selectedValue == 0">Incremento Iva</span>
+    <span class="without-color" *ngIf="selectedValue == 0">Valor Medalla</span>
     <span class="without-color">Valor medalla final</span>
     <span class="without-color">Acciones</span>
   </div>
@@ -137,12 +137,12 @@
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.medalGr.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.materialVl.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.utility.toLocaleString("en-US") }}</span>
-      <!-- <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.base.toLocaleString("en-US") }}</span> -->
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.base.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{ elementDataBase.ivaValueConst.toLocaleString("en-US") }}</span>
-      <!-- <span>{{ elementDataBase.ivaVl.toLocaleString("en-US") }}</span> -->
-      <!-- <span>{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
-      <span>{{ elementDataBase.incrementIva.toLocaleString("en-US") }}</span> -->
-      <!-- <span>{{ elementDataBase.medalVl.toLocaleString("en-US") }}</span> -->
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.ivaVl.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.increment.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.incrementIva.toLocaleString("en-US") }}</span>
+      <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }" *ngIf="selectedValue == 0">{{ elementDataBase.medalVl.toLocaleString("en-US") }}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">${{
          elementDataBase.vlMedalIncrement.toLocaleString("en-US")}}</span>
       <span [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">
