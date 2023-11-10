@@ -103,7 +103,7 @@
     <span class="without-color">Acciones</span>
   </div>
   <div  >
-    <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 7, 'table-info-full' : visibleAllTable, 'table-info' : !visibleAllTable}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
+    <div [ngClass]="{'show-scroll' : getDataFirebaseFilter.length > 8, 'hide-scroll' : getDataFirebaseFilter.length <= 8, 'table-info-full' : visibleAllTable, 'table-info' : !visibleAllTable}" *ngFor=" let elementDataBase of getDataFirebaseFilter; index as i; let isEven = even; let isOdd = odd">
       <span class="table-border" [ngClass]="{ 'full-color': isEven, 'without-color': isOdd }">{{
         elementDataBase.dateCurrent | date : "yyyy-MM-dd"
       }}</span>

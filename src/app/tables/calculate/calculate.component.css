@@ -32,6 +32,10 @@
   border-radius: 4px;
 }
 
+span{
+  min-width: 112px;
+}
+
 .button {
   justify-content: center;
   display: flex;
@@ -39,32 +43,30 @@
 }
 
 .show-scroll{
-  overflow-y: scroll;
-  height: 270px;
+  height: 27px;
 }
 
 .hide-scroll{
-  overflow-y: hidden;
+  height: 27px;
 }
 
 .table-title,
 .table-info {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  overflow-x: unset;
 }
 
 .table-title-full,
 .table-info-full {
   display: grid;
   grid-template-columns: repeat(17, 1fr);
-  overflow-x: unset;
 }
 
 .table {
   border: black 1px solid;
   margin-top: 1rem;
   overflow-x: auto;
+  max-height: 300px;
 }
 
 .table-title span,
