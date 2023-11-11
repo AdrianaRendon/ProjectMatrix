@@ -45,17 +45,20 @@ export class AppComponent {
         timer: 1500
       });      
       await this.getData();
+      await this.getValuesConst();
     }
   }
 
   async addValueConst(values: any){
     await this.firebaseService.addValueConst(values);            
     await this.getData();
+    await this.getValuesConst();
   }
 
   async deleteRegister(element: any){
     await this.firebaseService.deleteRegister(element.id);       
     await this.getData();
+    await this.getValuesConst();
   }
 
   async updateValueConst(valueConst: any) {

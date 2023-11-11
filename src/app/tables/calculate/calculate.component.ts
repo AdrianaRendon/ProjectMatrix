@@ -193,7 +193,7 @@ export class CalculateComponent implements OnChanges {
 
   updateValuesConst() {
     try {
-      if (this.valueConst && this.valueConst.length !== 0 && this.valueConst.id) {
+      if (this.valueConst && this.valueConst.length !== 0 && this.valueConst[0].id) {
         const newValueConst: any = {
           VCOZTYGR: this.ozTyGr,
           VCMedalGr: this.medalGr,
