@@ -19,7 +19,7 @@
     </a>     
 </div>
 </div>
-<div class="no-data" *ngIf="(getDataFirebase && getDataFirebase.length === 0) || (dataFirebaseFilter && dataFirebaseFilter.length === 0)">
+<div class="no-data" *ngIf="showLoading">
   <img class = "no-dataMedal" src="assets/images/NoData.png" alt="Image no data">
   <div class="loading">
     <span>
@@ -32,11 +32,11 @@
       Transformando vidas
     </span>
   </div>
-  <span *ngIf="(getDataFirebase && getDataFirebase.length > 0 && dataFirebaseFilter && dataFirebaseFilter.length === 0)">
+  <span *ngIf="!showLoading">
     No hay información dentro del rango seleccionado
   </span>
 </div>
-<div class="container" *ngIf="(getDataFirebase && getDataFirebase.length > 0) || (dataFirebaseFilter && dataFirebaseFilter.length > 0)">
+<div class="container" *ngIf="!showLoading">
   <app-calculate
     [valueConst]="valueConst"
     [getDataFirebase]="getDataFirebase"

@@ -14,13 +14,16 @@ export class AppComponent {
   public showModalFlag: boolean = false;
   public visibleAllTable: boolean = true;
   public visibleInput: boolean = true;
+  public showLoading: boolean = false;
 
   constructor(private firebaseService: FirebaseService) {
   }
 
   async ngOnInit()  {
+    this.showLoading = true;
     await this.getValuesConst();
-    await this.getData();    
+    await this.getData();   
+    this.showLoading = false;
   }
 
   async getData () {
