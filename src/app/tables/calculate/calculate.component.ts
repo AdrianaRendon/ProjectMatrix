@@ -308,7 +308,7 @@ export class CalculateComponent implements OnChanges {
   }
 
   calculateMedalVlIncrement() {
-    const vrMedallaFinal = this.medalVl + this.increment;
+    const vrMedallaFinal = this.medalVl + this.increment + this.incrementIva;
     return Number(vrMedallaFinal.toFixed(3));
   }
 }
