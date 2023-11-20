@@ -164,6 +164,7 @@ span{
 
 .style-input input{
   border: 1px solid var(--neutral-500, #E0E0E0);
+  text-align: right;
 }
 
 .container-formula {
