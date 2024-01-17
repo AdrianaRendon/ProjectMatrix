@@ -42,6 +42,7 @@
     [getDataFirebase]="getDataFirebase"
     [visibleAllTable] = "visibleAllTable"
     [visibleInput] = "visibleInput"
+    [changesconfiguration] = "changesconfiguration"
     (emitVaues)="calculate($event)"
     (deleteElement)="deleteRegister($event)"           
     (emitValuesConst)="addValueConst($event)" 
@@ -54,7 +55,7 @@
 </div>
 <div id="openModal" class="modalDialog">
 	<div>
-		<a href="#close" title="Close" class="close">X</a>
+		<a href="#close" title="Close" class="close" (click)="changesConfiguration()">X</a>
     <h2 class="modal-title">CONFIGURACIÓN</h2>
       <div class="modal-checks">
         <div class="form-check">

@@ -15,6 +15,7 @@ export class AppComponent {
   public visibleAllTable: boolean = true;
   public visibleInput: boolean = true;
   public showLoading: boolean = false;
+  public changesconfiguration: boolean = true;
 
   constructor(private firebaseService: FirebaseService) {
   }
@@ -67,5 +68,9 @@ export class AppComponent {
 
   getDataFirebaseFilter(dataFirebase: any){
     this.dataFirebaseFilter = dataFirebase;
+  }
+
+  changesConfiguration(){
+    this.changesconfiguration = false;
   }
 }

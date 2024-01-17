@@ -46,13 +46,23 @@ span{
   height: 27px;
 }
 
-.table-title,
+.table-title{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  position: sticky;
+  top: 0;
+}
 .table-info {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-.table-title-full,
+.table-title-full{
+  display: grid;
+  grid-template-columns: repeat(17, 1fr);
+  position: sticky;
+  top: 0;
+}
 .table-info-full {
   display: grid;
   grid-template-columns: repeat(17, 1fr);

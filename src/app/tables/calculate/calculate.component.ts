@@ -41,12 +41,13 @@ export class CalculateComponent implements OnChanges {
   @Input() valueConst: any;
   @Input() visibleAllTable: any;
   @Input() visibleInput: any;
+  @Input() changesconfiguration: boolean = true;
   @Output() emitVaues = new EventEmitter<any>();
   @Output() deleteElement = new EventEmitter<any>();
   @Output() emitValuesConst = new EventEmitter<any>();
   @Output() emitupdateValuesConst = new EventEmitter<any>();
   @Output() getDataFirebaseFilterEmit = new EventEmitter<any>();
-
+  
   constructor() {
     this.dateCurrent = this.formatedDate();
     this.dateFrom = this.formatedDate();
@@ -59,7 +60,9 @@ export class CalculateComponent implements OnChanges {
       if (this.getDataFirebase && this.getDataFirebase.length > 0) {
         this.dateTo =
           this.getDataFirebase[this.getDataFirebase.length - 1].dateCurrent;
-        this.dateFrom = this.calculateDate(this.dateTo);
+        const today = this.formatedDate();
+        if (today === this.dateFrom && this.changesconfiguration)
+          this.dateFrom = this.calculateDate(this.dateTo);
       }
       this.filterDate();
     }
